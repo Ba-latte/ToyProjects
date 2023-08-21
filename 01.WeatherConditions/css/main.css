@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+
+/* 외부CSS 머징 (합치기) */
+@import url(./reset.css);
+@import url(./core.css);
+@import url(./common.css);
+
+
+/* 겉박스 */
+.cont{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2a4674;
+}
+
+/* 메인페이지 */
+.mainPg{
+    /* position: relative;
+    top: 35vh;
+    left: 10vw; */
+
+    padding-top: 25vh;
+    padding-left: 10vw;
+
+    /* border: 1px solid #fff; */
+}
+
+/* 타이틀 */
+.mainPg-tit{
+    font-size: 4vmax;
+    color: orange;
+}
+/* 설명 */
+.mainPg-desc{
+    font-size: 1vmax;
+}
+/* 클릭 버튼 */
+.click-button{
+    margin: 20px 0;
+    width: 100px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: orange;
+
+    text-align: center;
+    line-height: 50px;
+    color: #2a4674;
+    font-weight: bold;
+    font-size: 20px;
+
+    cursor: pointer;
+}
+.click-button:active{
+    /* box-shadow: inset 2px 1px 1px #2a4674; */
+    
+}
+
+
+/* 이미지 */
+.img-container> #image{
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+}
+
+#image{
+    width: 200px;
+}
+
+.subPg-container{
+    padding-top: 10px;
+    padding-left: 10vw;
+}
+
+/* 성공시 보여주는 박스 */
+#success-box{
+    display: none;
+}
+
+/* 에러 메시지 박스 */
+#error-box{
+    display: none;
+}
+
+/* 클릭 버튼 */
+.back-button{
+    display: none;
+    
+    margin: 20px 0;
+    width: 100px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: orange;
+
+    text-align: center;
+    line-height: 50px;
+    color: #2a4674;
+    font-weight: bold;
+    font-size: 20px;
+
+    cursor: pointer;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지금 날씨 어때?</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- 제이쿼리 라이브러리 + UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <!-- ajax를 위한 제이쿼리 cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+
+</head>
+<body>
+    <main class="cont">
+        <section class="mainPg-container">
+            <div class="mainPg">
+                <h2 class="mainPg-tit">지금 날씨 어때?</h2>
+                <p class="mainPg-desc">※ 현재 위치 파악을 위해 <b>내 위치 확인 권한</b>을 허용해주세요</p>
+                <div class="click-button">CLICK</div>
+                <div class="img-container">
+                    <img id="image" src="./svg/01.png" alt="일러스트" />
+                </div>
+            </div>
+        </section>
+        <section class="subPg-container">
+            <div id="success-box">
+                <div class="printBx"></div>
+            </div>
+            <div id="error-box">
+                <h2>이 브라우저에서는 GeoLocation이 지원되지 않습니다 😥</h2>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
