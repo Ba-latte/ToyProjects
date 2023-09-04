@@ -1,8 +1,10 @@
+import '../css/Navbars.css';
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { ReactComponent as Ricola_logo } from "../../src/assets/ricola_logo.svg";
+import { CartFill, CircleFill } from 'react-bootstrap-icons';
 
 
 // 내비게이션 컴포넌트
@@ -29,6 +31,9 @@ function Navigation() {
                             {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                         </NavDropdown>
                     </Nav>
+                    <button className="button-cart">
+                        <CartFill /> Cart <span className="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
