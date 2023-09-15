@@ -21,11 +21,11 @@ function Banner(){
                 return(
                     <Carousel.Item key={idx}>
                         <img className='card-img' src={`https://picsum.photos/id/${randomNumBetween(1,10)}/850/400`} />
-                        <Carousel.Caption>
-                        <Badge className='card-badge' bg="danger">{val.badge}</Badge>
-                        <h3 className='card-tit'>{val.title}</h3>
-                        <p className='card-desc' dangerouslySetInnerHTML={{ __html: val.desc }}></p>
-                        { val.button3 !== "" && <Button variant="dark">{val.button3}</Button> }
+                        <Carousel.Caption className='card-item'>
+                            <Badge className='card-badge' bg="danger">{val.badge}</Badge>
+                            <h3 className='card-tit'>{val.title}</h3>
+                            <p className='card-desc' dangerouslySetInnerHTML={{ __html: val.desc }}></p>
+                            { val.button3 !== "" && <Button variant="dark">{val.button3}</Button> }
                         </Carousel.Caption>
                     </Carousel.Item>
                 )
