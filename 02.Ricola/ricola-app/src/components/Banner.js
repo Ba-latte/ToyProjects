@@ -1,49 +1,36 @@
 // 전체 배너 컴포넌트
 
 import React, { useRef, useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-
 import './../css/Banner.css';
-
-// import required modules
-import { Navigation } from 'swiper/modules';
-import { Button } from 'bootstrap';
-import bannerData from '../assets/SlideData';
 import { useSelector } from "react-redux";
-
-
+import Carousel from 'react-bootstrap/Carousel';
+import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
+import { randomNumBetween } from '../assets/utils.js';
 
 function Banner(){
-    // 배너 슬라이드 데이터 가져오기
+    // 배너 슬라이드 데이터 store에서 가져오기
     let bannerSlideData = useSelector((state)=>{return state.bannerSlideData});
     console.log("store에서 꺼내온 데이터 : ", bannerSlideData);
 
-    let test = [0, 1, 2];
 
     return(
     <>
-        <Swiper navigation={true} modules={[Navigation]} className="banner-main">
-        {test.map((v, i)=>{
-            <SwiperSlide><img src='./images/main.jpg' /></SwiperSlide>
-
-        })
-    }
-            <SwiperSlide>
-                <div className='slide'>
-                    <h2 className='button-new'>{bannerSlideData[0].button1}</h2>
-                    <h4 className='button-title'>{bannerSlideData[0].button2}</h4>
-                    <span className='desc' dangerouslySetInnerHTML={{__html : bannerSlideData[0].desc}}></span>
-                    {bannerSlideData[0].button3 != '' &&
-                    <button className='button-view'></button>
-                    }
-                </div>
-            </SwiperSlide>
-        </Swiper>
+        <Carousel className='card-container' data-bs-theme="dark">
+            { bannerSlideData.map((val, idx)=>{
+                return(
+                    <Carousel.Item key={idx}>
+                        <img className='card-img' src={`https://picsum.photos/id/${randomNumBetween(1,10)}/850/400`} />
+                        <Carousel.Caption>
+                        <Badge className='card-badge' bg="danger">{val.badge}</Badge>
+                        <h3 className='card-tit'>{val.title}</h3>
+                        <p className='card-desc' dangerouslySetInnerHTML={{ __html: val.desc }}></p>
+                        { val.button3 !== "" && <Button variant="dark">{val.button3}</Button> }
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                )
+            })}
+        </Carousel>
     </>
     )
 }

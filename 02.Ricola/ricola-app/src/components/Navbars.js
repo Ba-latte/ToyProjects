@@ -13,7 +13,8 @@ function Navigation() {
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
                 <Navbar.Brand href="#home">
-                    <Ricola_logo height="30" />
+                    {/* <Ricola_logo height="30" /> */}
+                    HerbVista Sweets
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
