@@ -11,10 +11,17 @@ import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
 
 
-function ProductCard(props) {
+function ProductCard() {
     // store에서 제품 데이터 가져오기
     const productDatas = useSelector((state)=>{return state.productsData});
+
     let navigate = useNavigate();
+
+    function clickedItemData(data){
+        console.log("클릭한 요소가 가지고 있는 제품 데이터!! ", data);
+        
+        localStorage.setItem("clickedItemData", JSON.stringify(data));
+    }
 
     return (
     <Container className="card-product-container " fluid="md">
@@ -28,7 +35,10 @@ function ProductCard(props) {
                         <Card.Body>
                             <Card.Title>{value.title}</Card.Title>
                             <Card.Text dangerouslySetInnerHTML={{ __html: value.desc }}></Card.Text>
-                            <Button variant="primary" onClick={()=>{navigate(`detail/${value.title}`)}}>더보기</Button>
+                            <Button variant="primary" onClick={()=>{ 
+                                navigate(`detail/${value.title.replaceAll(" ", "")}`);
+                                clickedItemData(value);
+                            }}>더보기</Button>
                         </Card.Body>
                     </Card>
                 </Col>

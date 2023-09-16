@@ -2,7 +2,8 @@ import Banner from "./Banner";
 import './../css/Main.css';
 import ProductCard from "./ProductCard";
 
-function Main(){
+function Main(props){
+
     return(
         <div className="main-page">
         {/* 1.배너 */}

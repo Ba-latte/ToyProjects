@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 
 function Products(){
     return(
@@ -5,6 +6,8 @@ function Products(){
         <h1>
             제품 리스트 컴포넌트
         </h1>
+        
+        <Outlet />
         </>
     )
 }

@@ -1,0 +1,43 @@
+
+/* 간략 설명 컨테이너 */
+.brief-desc-container{
+    width: 100%;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+}
+
+/* 이미지 박스 */
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    grid-column: 2/7;
+    background-color: cadetblue;
+}
+.image-container>img{
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+
+/* 각 제품 설명 박스 */
+.item-description-container{
+    grid-column: 7/12;
+    background-color: lightpink;
+}
+
+.lnb-container>.break-point{
+    padding: 0 5px;
+}
+.lnb-container>span:not(.break-point){
+    cursor: pointer;
+}
+
+/* 자세한 설명 컨테이너 */
+.detailed-desc-container{
+    padding: 0 30px;
+    margin-top: 100px;
+}
