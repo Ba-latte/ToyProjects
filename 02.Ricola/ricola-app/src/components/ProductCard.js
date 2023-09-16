@@ -8,12 +8,13 @@ import { useSelector } from "react-redux";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useNavigate } from 'react-router-dom';
 
 
-
-function ProductCard() {
+function ProductCard(props) {
     // store에서 제품 데이터 가져오기
     const productDatas = useSelector((state)=>{return state.productsData});
+    let navigate = useNavigate();
 
     return (
     <Container className="card-product-container " fluid="md">
@@ -27,7 +28,7 @@ function ProductCard() {
                         <Card.Body>
                             <Card.Title>{value.title}</Card.Title>
                             <Card.Text dangerouslySetInnerHTML={{ __html: value.desc }}></Card.Text>
-                            <Button variant="primary" onClick={()=>{}}>더보기</Button>
+                            <Button variant="primary" onClick={()=>{navigate(`detail/${value.title}`)}}>더보기</Button>
                         </Card.Body>
                     </Card>
                 </Col>
