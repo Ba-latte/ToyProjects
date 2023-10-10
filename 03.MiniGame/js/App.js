@@ -1,4 +1,5 @@
 import Background from "./Background.js";
+import Wall from "./Wall.js";
 
 export default class App{
     // 전역으로 쓰이는 변수 선언
@@ -20,6 +21,9 @@ export default class App{
             new Background({ img : document.querySelector("#bg5-img"), speed : -7 }),
             new Background({ img : document.querySelector("#bg6-img"), speed : -9 }),
         ];
+
+        // 벽 불러오기
+        this.walls = [new Wall({ type : 'SMALL' })];
     }
 
     // 리사이즈
@@ -56,6 +60,12 @@ export default class App{
                 background.update();
                 // 배경이미지 생성
                 background.draw();
+            });
+
+            // 벽 생성 관련
+            this.walls.forEach((wall)=>{
+                wall.update();
+                wall.draw();
             });
 
 
