@@ -4,20 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>05.3D Rotation</title>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    <!-- 상단 영역 -->
-    <header>
-        <div>
-            <nav>
-                <!-- 로고 -->
-                <!-- 메뉴 -->
-            </nav>
+    <div class="screen">
+        <!-- 화면 분할 : 왼쪽 영역 -->
+        <div class="container-left">
+            <!-- 상단 영역 -->
+            <header class="header">
+                <div class="container">
+                    <section class="header__logo">
+                        <!-- 로고 -->
+                        <h1 class="header__logo__title">
+                            <a href="#">Bara's Portfolio</a>
+                        </h1>
+                        <!-- 한줄 소개 -->
+                        <p class="header__logo__motto">Better ever than never</p>
+                    </section>
+                    <!-- 메뉴 -->
+                    <nav class="navigation">
+                        <ul class="navigation__menu">
+                            <li class="navigation__menu__item">
+                                <a href="#" class="navigation__link">WORKS</a>
+                            </li>
+                            <li class="navigation__menu__item">
+                                <a href="#" class="navigation__link">CONTACT</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <!-- 메인 영역 -->
+            <main class="main">
+                <div class="container">
+                    <!-- 섹션1 : 1분 자기소개 -->
+                    <section class="main__content content01">
+                        <div>
+                            달을 향해 쏴라. 빗나가도 별이 될 것이다.
+                        </div>
+                        <div class="main__motto">TOWARDS THE MOON</div>
+                        <div>Shoot for the moon. It will be a star even if it misses.</div>
+                        <div>안녕하세요 별이 되고 싶은 바라입니다.</div>
+                    </section>
+                    <!-- 섹션2 : 상세 자기소개 -->
+                    <section class="main__content content02">
+                        <h2>ABOUT Bara</h2>
+                    </section>
+                    <!-- 섹션3 : 스킬 소개 -->
+                    <section class="main__content content03">
+                        <h2>Experience</h2>
+                    </section>
+                </div>
+            </main>
+            <!-- 하단 영역 -->
+            <footer class="footer">
+                <div class="container">
+                    <section class="footer__content">
+                        <div></div>
+                        <p class="footer__info">
+                            Made by Bara
+                            © Bara 2023
+                        </p>
+                    </section>
+                </div>
+                <section class="footer__fun-box"></section>
+            </footer>
         </div>
-    </header>
-    <!-- 메인 영역 -->
-    <main></main>
-    <!-- 하단 영역 -->
-    <footer></footer>
+        <!-- 화면 분할 : 오른쪽 영역 -->
+        <div class="container-right">
+            <section class="works__content">
+                <div class="test">
+                    여기는 작업물 배너 공간
+                </div>
+            </section>
+        </div>
+    </div>
 </body>
 </html>

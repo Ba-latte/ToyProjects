@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* 웹폰트, 공용클래스 CSS */
+
+/* 변수 설정 */
+:root {
+    /* 색상 */
+    --light-purple: #e0dde3;
+    --main-purple: #bbacc1;
+    --dark-purple: #80698c;
+    --light-green: #d8d9d3;
+    --main-green: #909580;
+    --dark-green: #606454;
+    --main-yellow: #E6AE37;
+
+
+    --txt-color-black: #151217;
+    --txt-color-white: #f5f4f6;
+}
+
+/* 폰트 */
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+/* font-family: 'Open Sans', sans-serif; */
+
+/* 텍스트 하이라이트 */
+::-moz-selection {
+    /* Legacy Firefox syntax (version 61 and below) */
+    color: var(--txt-color-black);
+    background-color: var(--main-yellow);
+}
+::selection {
+    color: var(--txt-color-black);
+    background-color: var(--main-yellow);
+}
+
+.container{
+    /* max-width: 1400px; */
+    /* margin: 0 auto; */
+    padding: 0 50px;
+}
+.container-left{
+    grid-column: 1/9;
+}
+.container-right{
+    grid-column: 9/13;
+}
+
+
+
+/* 
+    [ 공통 클래스 이름정의 ]
+    1. ibx - inside box 속박스
+    2. pt1, pt2 - part1, part2 각 부분박스 (비율 적용)
+    3. cbx - content box 내용박스
+    4. bgi - background image 관련 속성
+*/
+
+/* 공사중 표시 */
+/* body * {
+    outline: 1px dashed gray;
+} */
+
+/* 글자 숨김 클래스(IR배경이미지 설명 등  숨기기) */
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 공통 배경색 클래스 */
+.bgc {
+    background-color: #f9f9f9;
+}

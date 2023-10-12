@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+html, body, h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+
+.main-container{
+    width: 100%;
+    height: 3000px;
+    background-color: #344E41;
+    /* transform: scaleY(1.01); */
+}
