@@ -18,7 +18,10 @@ function Detail(){
         navigate('/');
     }
     function toCategory(){
-        navigate('/products/Herb-Series');
+        // 첫글자 대문자로 바꾸기
+        let capitalized = itemData.category.charAt(0).toUpperCase() + itemData.category.slice(1);
+
+        navigate('/' + capitalized + '-Series');
     }
 
     // 탭에서 이동하기 위한 키 state

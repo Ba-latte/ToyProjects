@@ -22,11 +22,11 @@ function Navigation() {
                         <Nav.Link href="/">Home</Nav.Link>
                         {/* <Nav.Link href="#link">Detail</Nav.Link> */}
                         <NavDropdown title="Products" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#products/All-Products">All Products</NavDropdown.Item>
+                            <NavDropdown.Item href="#All-Products">All Products</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#products/Herb-Series">Herb Series</NavDropdown.Item>
-                            <NavDropdown.Item href="#products/Fruit-Series">Fruit Series</NavDropdown.Item>
-                            <NavDropdown.Item href="#products/Cocktail-Series">Cocktail Series</NavDropdown.Item>
+                            <NavDropdown.Item href="#Herb-Series">Herb Series</NavDropdown.Item>
+                            <NavDropdown.Item href="#Fruit-Series">Fruit Series</NavDropdown.Item>
+                            <NavDropdown.Item href="#Cocktail-Series">Cocktail Series</NavDropdown.Item>
                             {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                         </NavDropdown>
                     </Nav>
