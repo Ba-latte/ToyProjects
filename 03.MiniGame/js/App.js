@@ -63,10 +63,27 @@ export default class App{
             });
 
             // 벽 생성 관련
-            this.walls.forEach((wall)=>{
-                wall.update();
-                wall.draw();
-            });
+            for(let i = this.walls.length -1; i >= 0; i--){
+                this.walls[i].update();
+                this.walls[i].draw();
+
+                // 벽이 화면 밖으로 나갔는지 확인
+                console.log(this.walls[i].isOutside);
+                // 화면 밖으로 나가면 배열에서 지우기
+                if(this.walls[i].isOutside) {
+                    this.walls.splice(i, 1);
+                    continue
+                }
+
+                // 다음 벽 만들기
+                if(this.walls[i].canGenerateNext){
+                    // 벽 1개만 만들도록 막아두기
+                    this.walls[i].canGeneratedNext = true;
+
+                    // 벽 만들기
+                    this.walls.push(new Wall({ type : Math.random() > 0.4 ? 'SMALL' : 'BIG' }));
+                }
+            }
 
 
             ////////////////////////////////////////////

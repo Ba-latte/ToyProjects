@@ -30,14 +30,31 @@ export default class Wall{
         this.gapY = randomNumBetween(App.height * 0.23, App.height * 0.38);
 
         // x값
-        this.x = 0;
+        this.x = App.width;
 
         // y값
         this.y1 = -this.height + randomNumBetween(50, App.height - this.gapY - 50);
         this.y2 = this.y1 + this.height + this.gapY;
 
+        // 다음 벽 생성 가능 여부
+        this.canGeneratedNext = false;
+        // 다음 벽 생성 시점
+        this.gapNextX = App.width * randomNumBetween(0.5, 0.7);
+
+    }
+    // 밖으로 나갔는지 확인
+    get isOutside(){
+        return this.x + this.width < 0
+    }
+    // 다음 벽 생성할 수 있는지 확인
+    get canGenerateNext(){
+        return(
+            !this.canGeneratedNext && this.x + this.width < this.gapNextX
+        )
     }
     update(){
+        // 벽 왼쪽으로 이동
+        this.x += -4;
 
     }
     draw(){
