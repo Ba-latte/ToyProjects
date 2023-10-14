@@ -1,4 +1,5 @@
 import Background from "./Background.js";
+import Player from "./Player.js";
 import Wall from "./Wall.js";
 
 export default class App{
@@ -24,6 +25,9 @@ export default class App{
 
         // 벽 불러오기
         this.walls = [new Wall({ type : 'SMALL' })];
+
+        // 플레이어 불러오기
+        this.player = new Player();
     }
 
     // 리사이즈
@@ -84,6 +88,10 @@ export default class App{
                     this.walls.push(new Wall({ type : Math.random() > 0.4 ? 'SMALL' : 'BIG' }));
                 }
             }
+
+            // 플레이어 관련
+            this.player.update();
+            this.player.draw();
 
 
             ////////////////////////////////////////////
