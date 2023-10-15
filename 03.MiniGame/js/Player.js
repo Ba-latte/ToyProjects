@@ -17,6 +17,17 @@ export default class Player{
         // 프레임넘버 넘어가는 속도 조절
         this.counter = 0;
 
+        // 상승 속도
+        this.vy = -10;
+        // 중력
+        this.gravity = 0.2;
+
+        // 클릭 이벤트 연결
+        App.canvas.addEventListener("click", ()=>{
+            // 클릭시 위쪽으로 이동하게 하기
+            this.vy += -5;
+        })
+
     }
     update(){
         // 프레임넘버 넘어가는 속도 조절하기
@@ -28,6 +39,10 @@ export default class Player{
             // 프레임 넘버 반복시키기
             if(this.frameX === 15) this.frameX = 0;
         }
+
+        // 클릭시 날아오르기
+        this.vy += this.gravity;
+        this.y += this.vy;
 
     }
     draw(){
