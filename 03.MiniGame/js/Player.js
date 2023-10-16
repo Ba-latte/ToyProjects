@@ -1,5 +1,6 @@
 // 플레이어
 import App from "./App.js";
+import BoundingBox from "./BoundingBox.js";
 
 export default class Player{
     constructor(){
@@ -11,6 +12,9 @@ export default class Player{
 
         this.width = 100;
         this.height = this.width * (96 / 140);
+
+        // 충돌 감지용 박스 만들기
+        this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);
 
         // 프레임넘버
         this.frameX = 0;
@@ -44,6 +48,9 @@ export default class Player{
         this.vy += this.gravity;
         this.y += this.vy;
 
+        // 바운딩 박스의 y좌표값 업데이트하기
+        this.boundingBox.y = this.y;
+
     }
     draw(){
         // 이미지 그리기
@@ -54,5 +61,8 @@ export default class Player{
             this.x, this.y,
             this.width, this.height
         );
+
+        // 충돌 감지용 박스 그리기
+        this.boundingBox.draw();
     }
 }
