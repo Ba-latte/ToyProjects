@@ -14,7 +14,7 @@ export default class Player{
         this.height = this.width * (96 / 140);
 
         // 충돌 감지용 박스 만들기
-        this.boundingBox = new BoundingBox(this.x, this.y, this.width, this.height);
+        this.boundingBox = new BoundingBox(this.x + 10, this.y + 15, this.width - 20, this.height - 20);
 
         // 프레임넘버
         this.frameX = 0;
@@ -49,7 +49,7 @@ export default class Player{
         this.y += this.vy;
 
         // 바운딩 박스의 y좌표값 업데이트하기
-        this.boundingBox.y = this.y;
+        this.boundingBox.y = this.y + 15;
 
     }
     draw(){

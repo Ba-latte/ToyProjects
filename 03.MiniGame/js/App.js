@@ -72,7 +72,7 @@ export default class App{
                 this.walls[i].draw();
 
                 // 벽이 화면 밖으로 나갔는지 확인
-                console.log(this.walls[i].isOutside);
+                // console.log(this.walls[i].isOutside);
                 // 화면 밖으로 나가면 배열에서 지우기
                 if(this.walls[i].isOutside) {
                     this.walls.splice(i, 1);
@@ -86,6 +86,12 @@ export default class App{
 
                     // 벽 만들기
                     this.walls.push(new Wall({ type : Math.random() > 0.4 ? 'SMALL' : 'BIG' }));
+                }
+
+                // 생성된 벽과 플레이어간 충돌 감지
+                if(this.walls[i].isColliding(this.player.boundingBox)){
+                    // 충돌 체크
+                    console.log("충돌!");
                 }
             }
 

@@ -1,6 +1,7 @@
 // 장애물 벽
 
 import App from "./App.js";
+import BoundingBox from "./BoundingBox.js";
 import { randomNumBetween } from "./util.js"
 
 export default class Wall{
@@ -41,6 +42,10 @@ export default class Wall{
         // 다음 벽 생성 시점
         this.gapNextX = App.width * randomNumBetween(0.5, 0.7);
 
+        // 충돌 감지위한 boundingBox 만들기
+        this.boundingBox1 = new BoundingBox(this.x + 45, this.y1 + 30, this.width - 90, this.height - 65);
+        this.boundingBox2 = new BoundingBox(this.x + 45, this.y2 + 45, this.width - 90, this.height - 65);
+
     }
     // 밖으로 나갔는지 확인
     get isOutside(){
@@ -52,9 +57,20 @@ export default class Wall{
             !this.canGeneratedNext && this.x + this.width < this.gapNextX
         )
     }
+    // 충돌 감지 메서드
+    isColliding(target){
+        return(
+            this.boundingBox1.isColliding(target) ||
+            this.boundingBox2.isColliding(target)
+        )
+    }
     update(){
         // 벽 왼쪽으로 이동
         this.x += -4;
+
+        // 충돌 감지용 바운딩박스의 x좌표값 업데이트하기
+        this.boundingBox1.x = this.x + 45;
+        this.boundingBox2.x = this.x + 45;
 
     }
     draw(){
@@ -71,5 +87,9 @@ export default class Wall{
             this.x, this.y2,
             this.width, this.height
         );
+
+        // 충돌 감지용 바운딩박스 그리기
+        this.boundingBox1.draw();
+        this.boundingBox2.draw();
     }
 }
