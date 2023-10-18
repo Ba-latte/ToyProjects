@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html, body{
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* div.gradient1{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(45deg, #fff722, #ff26f9), linear-gradient(-45deg, red, white);
+    } */
+
+    /* div.gradient2{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: linear-gradient(-45deg, #0d43d870, #0c96c075);
+    overflow: hidden;
+    } */
+    div.gradient1{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(to top left, #071cd8, rgba(255, 153, 150, 0), #07a7d8);
+    }
+
+    div.gradient2{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: 
+        linear-gradient(to top left, #071cd8, rgba(255, 153, 150, 0), #07a7d8), 
+        linear-gradient(to top right, rgb(15, 18, 235), rgba(255, 153, 150, 0), rgb(255, 0, 55)), 
+        rgb(204, 150, 255);
+    }
+
+</style>
+<body>
+    <div class="gradient1"></div>
+    <div class="gradient2"></div>
+</body>
+</html>
