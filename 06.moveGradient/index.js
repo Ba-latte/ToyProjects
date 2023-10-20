@@ -1,4 +1,5 @@
 import { Particle } from "./js/Particle.js";
+import { randomNumBetween } from "./js/util.js";
 
 
 const canvas = document.querySelector("canvas");
@@ -12,8 +13,7 @@ let canvasHeight = innerHeight;
 const interval = 1000 / 60;
 
 // 총 파티클 갯수 : 화면 사이즈가 달라져도 비슷한 비율 유지하기
-// const totalParticles = canvasWidth / 100;
-const totalParticles = 5;
+const totalParticles = canvasWidth / 100;
 
 // 파티클 인스턴스 담을 배열
 const particles = [];
@@ -21,9 +21,9 @@ const particles = [];
 // 색상
 const COLORS = [
     {r: 45, g: 74, b: 227}, // blue
-    {r: 250, g: 255, b: 89}, // yellow
     {r: 60, g: 176, b: 255}, // #3cb0ff
-    {r:255, g: 40, b: 87} // #ff2857
+    {r:255, g: 40, b: 87}, // #ff2857
+    // {r: 250, g: 255, b: 89}, // yellow
 ];
 
 // 초기화 함수 : 처음 로드될 때, 리사이즈될 때 실행
@@ -46,13 +46,16 @@ function init(){
     // 색상 배열 갯수
     let colorCount = 0;
 
-    // ctx.globalCompositeOperation = "saturation";
+    // 합성 효과 부여
+    // overlay : 기존 형태와 새 형태의 픽셀이 혼합되면서 기존 형태의 어두운 부분은 더 어두워지고 밝은 부분은 더 밝아짐
+    // saturation : 새 형태의 채도를 갖되 기존 형태의 명도와 색조를 유지함
+    ctx.globalCompositeOperation = "saturation";
 
     // 파티클 생성
     for(let i = 0; i < totalParticles; i++ ){
         const x = Math.random() * canvasWidth;
         const y = Math.random() * canvasHeight;
-        const radius = Math.random() * (900, 400) + 400;
+        const radius = randomNumBetween(400, 900);
 
         // 파티클 만들기
         const particle = new Particle(x, y, radius, COLORS[colorCount]);

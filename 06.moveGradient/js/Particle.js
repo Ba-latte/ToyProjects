@@ -1,5 +1,7 @@
 // 그라데이션을 위한 파티클(원) 클래스
 
+import { randomNumBetween } from "./util.js";
+
 export class Particle{
     constructor(x, y, radius, rgb){
         this.x = x;
@@ -8,8 +10,9 @@ export class Particle{
         this.rgb = rgb;
 
         // 속도
-        this.vx = 5;
-        this.vy = 5;
+        this.vx = Math.round(randomNumBetween(1, 5));
+        this.vy = Math.round(randomNumBetween(1, 5));
+        // console.log("vx : ", this.vx, "vy : ", this.vy);
     }
     update(){
         this.x += this.vx;
