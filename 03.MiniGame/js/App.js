@@ -1,4 +1,5 @@
 import Background from "./Background.js";
+import Coin from "./Coin.js";
 import Player from "./Player.js";
 import Wall from "./Wall.js";
 
@@ -28,6 +29,9 @@ export default class App{
 
         // 플레이어 불러오기
         this.player = new Player();
+
+        // 코인 불러오기
+        this.coins = [new Coin(700 + this.walls[0].width / 2, this.walls[0].y2 - this.walls[0].gapY / 2)];
     }
 
     // 리사이즈
@@ -92,12 +96,25 @@ export default class App{
                 if(this.walls[i].isColliding(this.player.boundingBox)){
                     // 충돌 체크
                     console.log("충돌!");
+
+                    // 충돌시 플레이어 바운딩박스 색상 변경
+                    this.player.boundingBox.color = `rgba(255, 0, 0, 0.5)`;
+                }
+                else{
+                    // 충돌하지 않았을 경우 : 플레이어 바운딩박스 파란색
+                    this.player.boundingBox.color = `rgba(0, 0, 255, 0.5)`;
                 }
             }
 
             // 플레이어 관련
             this.player.update();
             this.player.draw();
+
+            // 코인 관련
+            for(let i = this.coins.length -1; i >= 0; i--){
+                this.coins[i].update();
+                this.coins[i].draw();
+            }
 
 
             ////////////////////////////////////////////

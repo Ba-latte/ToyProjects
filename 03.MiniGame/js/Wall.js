@@ -74,6 +74,9 @@ export default class Wall{
 
     }
     draw(){
+        // 테스트용 벽
+        this.x = 700;
+        
         // 이미지 그리기
         App.ctx.drawImage(
             this.img,
