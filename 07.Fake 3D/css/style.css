@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* 
+    웹 폰트
+    font-family: 'Poppins', sans-serif;
+*/
+
+html, body, ul, ol{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #FFE17B;
+
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+ul, ol{
+    list-style: none;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
+
+/* 구글 아이콘 기본 세팅 */
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+.icon{
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.header__container{
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* border: 1px solid #000; */
+}
+
+.header__menu{
+    display: flex;
+    gap: 2vmin;
+}
+.header__nav>.header__menu{
+    gap: 5vmin;
+}
+
+.banner__container{
+    height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10vmin;
+}
+
+.slide-button{
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 35px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+.slide-button:hover{
+    background-color: rgb(255, 215, 82);
+}
+.slide-button:active{
+    box-shadow: inset 2px 2px 1px 1px rgba(0, 0, 0, 0.2);
+}
