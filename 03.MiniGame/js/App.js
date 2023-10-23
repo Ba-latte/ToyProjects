@@ -94,7 +94,7 @@ export default class App{
                     this.walls.push(newWall);
 
                     // 랜덤 확률로 코인 생성하기
-                    if(Math.random() < 0.5){
+                    if(Math.random() < 1){
                         const x = newWall.x + newWall.width / 2;
                         const y = newWall.y2 - newWall.gapY / 2;
                         this.coins.push(new Coin(x, y, newWall.vx));
@@ -126,6 +126,16 @@ export default class App{
 
                 // 코인이 화면 밖으로 나가면 배열에서 지우기
                 if(this.coins[i].x + this.coins[i].width < 0){
+                    this.coins.splice(i, 1);
+                    // 코인 지운 후에 아래 코드 실행되지 않도록 막기
+                    continue
+                }
+
+                // 플레이어와 코인 사이에서의 충돌 감지하기
+                if(this.coins[i].boundingBox.isColliding(this.player.boundingBox)){
+                    console.log("플레이어와 코인 충돌!");
+
+                    // 충돌한 코인 배열에서 지우기
                     this.coins.splice(i, 1);
                 }
             }
