@@ -31,7 +31,8 @@ export default class App{
         this.player = new Player();
 
         // 코인 불러오기
-        this.coins = [new Coin(700 + this.walls[0].width / 2, this.walls[0].y2 - this.walls[0].gapY / 2)];
+        // this.coins = [new Coin(700 + this.walls[0].width / 2, this.walls[0].y2 - this.walls[0].gapY / 2)]; // 테스트용
+        this.coins = [];
     }
 
     // 리사이즈
@@ -89,7 +90,15 @@ export default class App{
                     this.walls[i].canGeneratedNext = true;
 
                     // 벽 만들기
-                    this.walls.push(new Wall({ type : Math.random() > 0.4 ? 'SMALL' : 'BIG' }));
+                    const newWall = new Wall({ type : Math.random() > 0.4 ? 'SMALL' : 'BIG' });
+                    this.walls.push(newWall);
+
+                    // 랜덤 확률로 코인 생성하기
+                    if(Math.random() < 0.5){
+                        const x = newWall.x + newWall.width / 2;
+                        const y = newWall.y2 - newWall.gapY / 2;
+                        this.coins.push(new Coin(x, y, newWall.vx));
+                    }
                 }
 
                 // 생성된 벽과 플레이어간 충돌 감지
@@ -114,6 +123,11 @@ export default class App{
             for(let i = this.coins.length -1; i >= 0; i--){
                 this.coins[i].update();
                 this.coins[i].draw();
+
+                // 코인이 화면 밖으로 나가면 배열에서 지우기
+                if(this.coins[i].x + this.coins[i].width < 0){
+                    this.coins.splice(i, 1);
+                }
             }
 
 

@@ -46,6 +46,9 @@ export default class Wall{
         this.boundingBox1 = new BoundingBox(this.x + 45, this.y1 + 30, this.width - 90, this.height - 65);
         this.boundingBox2 = new BoundingBox(this.x + 45, this.y2 + 45, this.width - 90, this.height - 65);
 
+        // 이동 속도
+        this.vx = -4;
+
     }
     // 밖으로 나갔는지 확인
     get isOutside(){
@@ -66,7 +69,7 @@ export default class Wall{
     }
     update(){
         // 벽 왼쪽으로 이동
-        this.x += -4;
+        this.x += this.vx;
 
         // 충돌 감지용 바운딩박스의 x좌표값 업데이트하기
         this.boundingBox1.x = this.x + 45;
@@ -75,7 +78,7 @@ export default class Wall{
     }
     draw(){
         // 테스트용 벽
-        this.x = 700;
+        // this.x = 700;
         
         // 이미지 그리기
         App.ctx.drawImage(

@@ -3,15 +3,17 @@
 import App from "./App.js";
 
 export default class Coin{
-    constructor(x, y){
+    constructor(x, y, vx){
         // 이미지 불러오기
         this.img = document.querySelector("#coin-img");
 
-        // 이미지 크기
+        // 이미지
         this.x = x;
         this.y = y;
         this.width = 50;
         this.height = 50;
+
+        this.vx = vx;
 
         // 프레임 넘버
         this.frameX = 0;
@@ -27,6 +29,9 @@ export default class Coin{
             // 한계값 도달시 0으로 초기화
             if(this.frameX === 5) this.frameX = 0;
         }
+
+        // 코인 이동하기
+        this.x += this.vx;
     }
     draw(){
         // 이미지 그리기
