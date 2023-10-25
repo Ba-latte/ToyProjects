@@ -51,6 +51,6 @@ export default class Coin{
         );
 
         // 바운딩박스 그리기
-        this.boundingBox.draw();
+        // this.boundingBox.draw();
     }
 }

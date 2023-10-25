@@ -2,6 +2,7 @@ import Background from "./Background.js";
 import Coin from "./Coin.js";
 import Player from "./Player.js";
 import Wall from "./Wall.js";
+import Score from "./Score.js";
 
 export default class App{
     // 전역으로 쓰이는 변수 선언
@@ -33,6 +34,9 @@ export default class App{
         // 코인 불러오기
         // this.coins = [new Coin(700 + this.walls[0].width / 2, this.walls[0].y2 - this.walls[0].gapY / 2)]; // 테스트용
         this.coins = [];
+
+        // 점수판 불러오기
+        this.score = new Score();
     }
 
     // 리사이즈
@@ -137,8 +141,15 @@ export default class App{
 
                     // 충돌한 코인 배열에서 지우기
                     this.coins.splice(i, 1);
+
+                    // 획득 코인 수 증가
+                    this.score.coinCount += 1;
                 }
             }
+
+            // 점수판 관련
+            this.score.update();
+            this.score.draw();
 
 
             ////////////////////////////////////////////
