@@ -63,6 +63,6 @@ export default class Player{
         );
 
         // 충돌 감지용 박스 그리기
-        this.boundingBox.draw();
+        // this.boundingBox.draw();
     }
 }
