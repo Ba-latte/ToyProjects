@@ -3,6 +3,7 @@ import Coin from "./Coin.js";
 import Player from "./Player.js";
 import Wall from "./Wall.js";
 import Score from "./Score.js";
+import GameHandler from "./GameHandler.js";
 
 export default class App{
     // 전역으로 쓰이는 변수 선언
@@ -37,18 +38,22 @@ export default class App{
 
         // 점수판 불러오기
         this.score = new Score();
+
+        // 게임 핸들러 불러오기
+        this.gameHandler = new GameHandler();
     }
 
-    // 리사이즈
-    resize(){
+    // 초기화
+    init(){
         App.canvas.width = App.width * App.dpr;
         App.canvas.height = App.height * App.dpr;
         App.ctx.scale(App.dpr, App.dpr);
 
-        // 화면 비율 정하기
-        const width = innerWidth > innerHeight ? innerHeight * 0.9 : innerWidth * 0.9;
-        App.canvas.style.width = width + 'px';
-        App.canvas.style.height = width * (3 / 4) + 'px';
+        // 배경이미지 생성 관련
+        this.backgrounds.forEach((background)=>{
+            // 배경이미지 생성
+            background.draw();
+        });
     }
 
     // 렌더
@@ -65,7 +70,12 @@ export default class App{
 
             if(delta < App.interval) return;
             ////////////////////////////////////////////
+            // 게임 상태 변수값에 따라 화면 보여주기 : PLAYING 상태 아니면 돌려보내기
+            if(this.gameHandler.status !== "PLAYING") return;
+
+            // 화면 지우기
             App.ctx.clearRect(0, 0, App.width, App.height);
+
 
             // 배경이미지 생성 관련
             this.backgrounds.forEach((background)=>{
