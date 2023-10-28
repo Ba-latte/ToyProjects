@@ -25,7 +25,14 @@ export default class App{
             new Background({ img : document.querySelector("#bg5-img"), speed : -7 }),
             new Background({ img : document.querySelector("#bg6-img"), speed : -9 }),
         ];
+        // 게임 핸들러 불러오기
+        this.gameHandler = new GameHandler(this);
 
+        // 리셋 함수 호출해서 초기화하기
+        this.reset();
+    }
+    // 게임 리셋
+    reset(){
         // 벽 불러오기
         this.walls = [new Wall({ type : 'SMALL' })];
 
@@ -39,10 +46,7 @@ export default class App{
         // 점수판 불러오기
         this.score = new Score();
 
-        // 게임 핸들러 불러오기
-        this.gameHandler = new GameHandler();
     }
-
     // 초기화
     init(){
         App.canvas.width = App.width * App.dpr;
@@ -116,22 +120,37 @@ export default class App{
                 }
 
                 // 생성된 벽과 플레이어간 충돌 감지
+                // if(this.walls[i].isColliding(this.player.boundingBox)){
+                //     // 충돌 체크
+                //     // console.log("충돌!");
+
+                //     // 충돌시 플레이어 바운딩박스 색상 변경
+                //     this.player.boundingBox.color = `rgba(255, 0, 0, 0.5)`;
+                // }
+                // else{
+                //     // 충돌하지 않았을 경우 : 플레이어 바운딩박스 파란색
+                //     this.player.boundingBox.color = `rgba(0, 0, 255, 0.5)`;
+                // }
                 if(this.walls[i].isColliding(this.player.boundingBox)){
                     // 충돌 체크
-                    console.log("충돌!");
-
-                    // 충돌시 플레이어 바운딩박스 색상 변경
-                    this.player.boundingBox.color = `rgba(255, 0, 0, 0.5)`;
-                }
-                else{
-                    // 충돌하지 않았을 경우 : 플레이어 바운딩박스 파란색
-                    this.player.boundingBox.color = `rgba(0, 0, 255, 0.5)`;
+                    // console.log("충돌!");
+                    
+                    // 충돌하면 게임 상태 변수를 바꿔서 종료 화면을 보여주며 게임오버시키기
+                    this.gameHandler.status = "FINISHED";
+                    
+                    break;
                 }
             }
 
             // 플레이어 관련
             this.player.update();
             this.player.draw();
+
+            // 플레이어가 화면 밖으로 나갔을 경우, 벽과 충돌한 것과 동일하게 처리
+            if(this.player.y >= App.height || this.player.y + this.player.height <= 0){
+                // console.log("화면 밖으로 나감");
+                this.gameHandler.status = "FINISHED";
+            }
 
             // 코인 관련
             for(let i = this.coins.length -1; i >= 0; i--){
