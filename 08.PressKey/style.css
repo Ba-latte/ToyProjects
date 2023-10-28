@@ -1,0 +1,52 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html, body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body *{
+  box-sizing: border-box;
+}
+
+h2,h3{
+  margin: 0;
+  padding: 0;
+}
+main{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #dddddd;
+}
+canvas{
+  /* border: 1px solid red; */
+}
+
+.title{
+  display: block;
+  position: absolute;
+  bottom: 80%;
+  left: 8%;
+  /* clamp(최솟값, 선호값, 최대값) : 일반적으로 선호값이 지정되나 최솟값 미만, 최대값 초과값은 지정되지 않음 */
+  font-size: clamp(20px, 2vw, 40px);
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 5px;
+
+  /* border: 1px solid #000; */
+}
+.title>span{
+  font-size: clamp(30px, 3.5vw, 100px);
+  color: rgb(252, 97, 41);
+}
+.desc{
+  position: absolute;
+  bottom: 75%;
+  left: 8%;
+  font-size: clamp(14px, 1.1vw, 20px);
+  font-weight: normal;
+}
+
