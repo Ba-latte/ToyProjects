@@ -5,22 +5,10 @@ window.addEventListener("DOMContentLoaded", ()=>{
     const mountain02 = document.querySelector("#mountain02");
     const mountain03 = document.querySelector("#mountain03");
     const mountain04 = document.querySelector("#mountain04");
-    const mainTitle = document.querySelector(".main__title");
-    const string = "MOUNTAIN";
-
-    for(txt of string){
-        console.log(txt);
-        mainTitle.innerHTML += `<span class="txt">${txt}</span>`;
-    }
-
-    const txts = document.querySelectorAll(".main__title .txt");
-
-    console.log(txts);
-
 
 
     headerButtons.forEach((button)=>{
-        button.addEventListener("click", (event)=>{
+        button.addEventListener("click", ()=>{
             // 기존 active 클래스 지우기
             document.querySelector(".header__button--active").classList.remove("header__button--active");
 
